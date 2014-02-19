@@ -4,7 +4,7 @@ class GithubController < ApplicationController
 	
 	def contri
 		connection = Github.new(basic_auth: "#{params[:username]}:#{params[:password]}")
-		@list=Github::Contributions::List.new(connection, params[:username])
+		@list=Github::Contributions::List.new(connection, params[:username]).list
     end
 
 	def github_issue_params
